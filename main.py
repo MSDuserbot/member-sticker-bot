@@ -17,7 +17,7 @@ bughunter0 = Client(
 )
 
 START_STRING_PRIVATE = """ Hi {}, I'm Member Sticker Bot. 
- I Can Send Relevant Thankyou Sticker in Groups and Channel
+ I Can Send Relevant Thankyou Sticker in Groups.
 \n All Member count doesn't return a sticker, so I will send a Thank you message for the count which have no sticker,
 This message will be deleted after 10 second. \n
 Nothing to Do here !! 😕
@@ -31,12 +31,17 @@ START_STRING_GROUP = """ **I need Admin rights to Send sticker in {}**
 """
 
 ABOUT = """
-● **BOT:** `Member Sticker BOT` 
-● **AUTHOR :** [bughunter0](https://t.me/bughunter0) 
+● **BOT:** `Member Greeting BOT` 
+
+● **AUTHOR :** [எம்.எஸ்.டி](https://t.me/my_dear_lightbright) 
+
 ● **SERVER :** `Heroku` 
+
 ● **LIBRARY :** `Pyrogram` 
+
 ● **LANGUAGE :** `Python 3.9` 
-● **SOURCE :** [BugHunterBots](https://t.me/BugHunterBots/93) 
+
+● **SOURCE :** [click here](https://t.me/kittybots) 
 
 """
 HELP = """
@@ -48,23 +53,23 @@ HELP = """
 
 CHANNEL_BUTTON = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('↗ Join Here ↗', url='https://t.me/BughunterBots')
+        InlineKeyboardButton('↗ Join Here ↗', url='https://t.me/kittybots')
         ]]
     )
 ADDME_BUTTON = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('↗ ADD ME TO A GROUP ↗', url="t.me/member_sticker_bot?startgroup=true")
+        InlineKeyboardButton('↗ ADD ME TO A GROUP ↗', url="t.me/MembersGreetingBot?startgroup=true")
         ]]
     )
 START_BUTTON = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('ABOUT',callback_data='cbabout'),
-        InlineKeyboardButton('HELP',callback_data='cbhelp')
+        InlineKeyboardButton('OWNER',url='https://t.me/my_dear_lightbright')
         ],
         [
-        InlineKeyboardButton('↗ Join Here ↗', url='https://t.me/BughunterBots'),
+        InlineKeyboardButton('↗ Join Here ↗', url='https://t.me/KittyBots'),
         ],
-        [InlineKeyboardButton('↗ ADD ME TO A GROUP ↗', url="t.me/member_sticker_bot?startgroup=true")
+        [InlineKeyboardButton('↗ ADD ME TO A GROUP ↗', url="t.me/MembersGreetingBot?startgroup=true")
         ]]
         
     )
@@ -107,7 +112,7 @@ async def start_private(bot, update):
         quote=True
     )
 
-@bughunter0.on_message((filters.command(["start"]) & filters.group) | filters.regex("/start@member_sticker_bot"))
+@bughunter0.on_message((filters.command(["start"]) & filters.group) | filters.regex("/start@MemberGreetingBot"))
 async def start_group(bot, update):
     text = START_STRING_GROUP.format(update.chat.title)
     reply_markup = CHANNEL_BUTTON
